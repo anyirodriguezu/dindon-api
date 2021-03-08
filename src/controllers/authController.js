@@ -32,9 +32,16 @@ async function signin(req, res) {
 async function addUser(req, res) {
     try {
         const { body } = req;
+        console.log(body)
+
+
+
+
         const newUser = new UserModel(body)
         await newUser.save();
         res.json({ message: "Guardado" })
+
+
     } catch (e) {
         console.log('Catch an error: ', e)
     }
