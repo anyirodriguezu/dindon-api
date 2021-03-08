@@ -10,16 +10,17 @@ const options = {
     useCreateIndex: true,
     useUnifiedTopology: true
 };
-
-mongoose.connect(config.URL, options)
+const URL = process.env.DB || "mongodb+srv://dindon:dindon@cluster0.g8s9q.mongodb.net/test?authSource=admin";
+const PORT = process.env.PORT || 3000;
+mongoose.connect(URL, options)
     .then(db => console.log('DB connected'))
     .catch(err => console.log(err));
 
-app.set('port', config.PORT);
+app.set('port', PORT);
 app.use(cors());
 app.use(morgan('dev'));
 app.use(express.json())
-app.use(express.urlencoded({extended:false}));
+app.use(express.urlencoded({ extended: false }));
 
 const authRouter = require('./routes/authRoutes');
 const questionRouter = require('./routes/questionRouter');
