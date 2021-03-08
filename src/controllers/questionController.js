@@ -5,6 +5,7 @@ async function getQuestion(req, res) {
     console.log("entro")
     const questionModel = await QuestionModel.find();
     res.json(questionModel)
+    if (err) throw err;
 }
 
 async function addQuestion(req, res) {
@@ -13,6 +14,7 @@ async function addQuestion(req, res) {
     const newQuestion = new QuestionModel(body)
     await newQuestion.save();
     res.json({ message: "Guardado" })
+    if (err) throw err;
 };
 
 module.exports = {

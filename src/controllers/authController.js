@@ -20,6 +20,7 @@ async function signin(req, res) {
             user: user[0]
         }
         res.status(200).json(perfil);
+        if (err) throw err;
     }
 }
 
@@ -28,6 +29,7 @@ async function addUser(req, res) {
     const newUser = new UserModel(body)
     await newUser.save();
     res.json({ message: "Guardado" })
+    if (err) throw err;
 };
 
 async function logout(req, res) {
