@@ -34,9 +34,6 @@ async function addUser(req, res) {
         const { body } = req;
         console.log(body)
 
-
-
-
         const newUser = new UserModel(body)
         await newUser.save();
         res.json({ message: "Guardado" })
