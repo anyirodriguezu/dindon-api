@@ -15,7 +15,7 @@ mongoose.connect(config.URL, options)
     .then(db => console.log('DB connected'))
     .catch(err => console.log(err));
 
-app.set('port', process.env.PORT || 3000);
+app.set('port', config.PORT);
 app.use(cors());
 app.use(morgan('dev'));
 app.use(express.json())
