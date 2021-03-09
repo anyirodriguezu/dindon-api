@@ -4,7 +4,8 @@ const UserModel = require('../models/userModel')
 
 async function signin(req, res) {
     let names = req.body.names;
-
+    console.log("----------")
+    console.log(names)
     try {
         const user = await UserModel.find({
             "names": names,
